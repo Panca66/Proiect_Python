@@ -1,0 +1,112 @@
+
+{% extends 'base.html' %}
+{% block title%} Vizitatori {% endblock%}
+
+{% block content %}
+  <div class="container-fluid">
+    <br/><br/>
+    <div class="row">
+      <div class="col md-12" style="background-color:#8B0000;">
+        <br/><br/>
+        <div class="jumbotron jumbotron-fluid">
+          <br/><br/>
+          <h2 class="vizit">Manage <b>guests</b>
+            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#mymodal">Add New gest</button>
+          </h2>
+          <br/><br/><br/><br/>
+          <table class="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Confirmation</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for row in vizit %}
+              <tr>
+                <th>{{row.id}}</th>
+                <td>{{row.name}}</td>
+                <td>{{row.email}}</td>
+                <td>{{row.review}}</td>
+                <td>
+                  <a href="/update/{{row.id}}" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modaledit{{row.id}}">Edit</a>
+                  <a href="/delete/{{row.id}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this review?')">Delete</a>
+                </td>
+              </tr>
+
+              <div id="modaledit{{row.id}}" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Update Informations</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form action="{{url_for('update')}}" method="POST">
+                        <div class="form-group">
+                          <label>Name:</label>
+                          <input type="hidden" name="id" value="{{row.id}}">
+                          <input type="text" class="form-control" name="name" value="{{row.name}}">
+                        </div>
+                        <div class="form-group">
+                          <label>E-mail:</label>
+                          <input type="email" class="form-control" name="email" value="{{row.email}}">
+                        </div>
+                        <div class="form-group">
+                          <label>Confirmation:</label>
+                          <input type="text" class="form-control" name="review" value="{{row.review}}">
+                        </div>
+                        <div class="form-group">
+                          <button class="btn btn-primary" type="submit">Update</button>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div id="mymodal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Confirmati prezenta</h4>
+              </div>
+              <div class="modal-body">
+                <form action="{{url_for('insert')}}" method="POST">
+                  <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" class="form-control" name="name" required="1">
+                  </div>
+                  <div class="form-group">
+                    <label>E-mail:</label>
+                    <input type="email" class="form-control" name="email" required="1">
+                  </div>
+                  <div class="form-group">
+                    <label>Confirmation:</label>
+                    <input type="text" class="form-control" name="review" required="1">
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Confirmati prezenta</button>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

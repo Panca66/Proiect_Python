@@ -1,0 +1,95 @@
+body {
+    margin:2;
+    font-family: system-ui;
+    }
+
+h1.first_page{
+    color:white;
+    text-aligh: center;
+    position: absolute;
+    top: 70px;
+    left: 16px;
+    font-size: 300%;
+}
+h1{
+    color:white;
+    text-aligh: center;
+    position: absolute;
+    top: 70px;
+    left: 16px;
+    font-size: 300%;
+}
+h2{
+    color:white;
+    position: absolute;
+    top: 130px;
+    left: 16px;
+    font-size: 200%;
+}
+h3{
+    color:white;
+    position: absolute;
+    top: 600px;
+    left: 850px;
+    font-size: 300%;
+    text-align: right;
+}
+h2.vizit {
+    color:#CD5C5C;
+    position: absolute;
+    top: 130px;
+    left: 16px;
+    font-size: 200%;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border:solid black 1px;
+    padding: 2px;
+ }
+
+.ab {
+    max-width: 100%;
+    height: auto;
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border:solid black 1px;
+    padding: 2px;
+}
+
+.hero {
+    background-color: #8B0000;
+    background-image: url("../images/apus.jpeg")
+    color: white
+}
+
+.first{
+    background-color: #8B0000;
+    color: white
+}
+.contact h4{
+    color:black;
+    text-align: right;
+    font-weight: bold;
+    top: 700px;
+    left: 800px;
+    font-size: 180%;
+}
+.phone p{
+    color:black;
+    text-align: right;
+    top: 750px;
+    left: 700px;
+    font-size: 150%;
+}
+.adress p{
+    color:black;
+    text-align: right;
+    top: 800px;
+    left: 650px;
+    font-size: 150%;
+}
